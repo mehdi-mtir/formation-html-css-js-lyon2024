@@ -1,13 +1,79 @@
-body{
-    font-size: 14px;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    color: grey;
+@media screen and (max-with:600px){
+    body{
+        font-size: 12px;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        color: grey;
+    }
+
+    .container{
+        width: 500px;
+        margin: auto;
+    }
+
+    section{
+        width: 100%;
+    }
+
+    aside{
+        width: 100%;
+        text-align: center;
+    }
 }
 
-.container{
-    width: 1240px;
-    margin: auto;
+@media screen and (min-width: 600px) and  (max-with:900px){
+
+    
+    body{
+        font-size: 14px;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        color: grey;
+    }
+
+    section{
+        width: 100%;
+    }
+
+    .container{
+        width: 700px;
+        margin: auto;
+    }
+
+    aside{
+        width: 100%;
+        text-align: center;
+    }
 }
+
+@media screen and (min-width: 900px){
+    
+    body{
+        font-size: 16px;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        color: grey;
+    }
+    .container{
+        width: 900px;
+        margin: auto;
+    }
+
+    section{
+        width: 70%;
+        float: left;
+        padding: 10px;
+    }
+
+    aside{
+        float: right;
+        width: 20%;
+        margin-right: 20px;
+    }
+
+
+}
+
+
+
+
 
 header{
     height: 300px;
@@ -40,11 +106,7 @@ nav a:hover{
     color: #44388c;
 }
 
-section{
-    width: 70%;
-    float: left;
-    padding: 10px;
-}
+
 
 .home img{
     width: 150px;
@@ -57,11 +119,7 @@ section{
     text-align: justify;
 }
 
-aside{
-    float: right;
-    width: 20%;
-    margin-right: 20px;
-}
+
 
 footer{
     clear: both;
