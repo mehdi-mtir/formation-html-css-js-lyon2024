@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Démo formulaire</title>
+    <link href="style/style.css" rel="Stylesheet" type="text/css" />
+</head>
+<body>
+    <h1>Formulaire de démonstration</h1>
+    <form action="#" method="post">
+        <div>
+            <label for="nom">Nom</label>
+            <input type="text" name="nom" id="nom"/>
+        </div>
+        <div>
+            <label for="nom">Email</label>
+            <input type="email" name="email" id="email" required/> <!-- le contenu ne sera considéré valide que s'il contienne @ précédé et suivi de caractères valides -->
+        </div>
+        <div>
+            <label for="activite1">Activités</label>
+            <input type="checkbox" name="activites[]" id="activite1" value="1">Musique 
+            <input type="checkbox" name="activites[]" id="activite2" value="2">Sport 
+            <input type="checkbox" name="activites[]" id="activite3" value="3">Cinéma 
+        </div>
+        <div>
+            <label for="jour">Journée disponible</label>
+            <input type="radio" name="jour" id="jour" value="1"> Lundi
+            <input type="radio" name="jour" id="jour" value="2"> Mardi
+            <input type="radio" name="jour" id="jour" value="3"> Mercredi
+        </div>
+        <div>
+            <label for="fruits">Fruits</label>
+            <select required>
+                <option value="">--Veuillez sélectionner un fruit--</option>
+                <option value="1">Pomme</option>
+                <option value="2">Fraise</option>
+                <option value="3">Poire</option>
+                <option value="4">Orange</option>
+            </select>
+        </div>
+        <div>
+            <label for="date_reunion">Date de la réunion</label>
+            <input type="date" name="date_reunion" id="date_reunion" />
+        </div>
+        <div>
+            <label for="message">Message</label>
+            <textarea name="message" id="message"></textarea>
+        </div>
+
+        <div>
+            <!--button type="submit">Valider</button-->
+            <input type="submit" value="Valider" />
+            <input type="reset" value="Annuler" />
+        </div>
+    </form>
+</body>
+</html>

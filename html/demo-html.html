@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Démo des principaux éléments HTML</title>
+        <link href="style/style.css" rel="Stylesheet" type="text/css" />
+    </head>
+    <body>
+        <div>
+            <h1>Principaux éléments HTML :</h1>
+            <h2>Les titres - headings </h2>
+                <h3>Un titre moins important</h3>
+                <h6 class="erreur">Titre les moins important</h6>
+        </div>
+        <div>
+            <h2 id="paragraphe">Les paragraphes </h2>
+            <p>Ceci est un premier paragraphe</p>
+            <p class="erreur">Mon deuxième paragraphe. <br/> Une nouvelle ligne. </p>
+        </div>
+        <div>
+            <h2>Les listes</h2>
+            <h3>Listes non-ordonnées</h3>
+                <ul>
+                    <li>Lundi</li>
+                    <li class="erreur">Mardi</li>
+                    <li>Mercredi</li>
+                </ul>
+
+            <h3>Listes ordonnées</h3>
+                <ol>
+                    <li>Janvier</li>
+                    <li>Février</li>
+                    <li>Mars</li>
+                </ol>
+            <h3>Listes de description</h3>
+                <dl>
+                    <dt>HTML</dt>
+                    <dd>Abréviation de HyperText Markup Language</dd>
+                    <dt>CSS</dt>
+                    <dd>Cascading Stylesheet</dd>
+                </dl>     
+        </div>
+        <div>
+            <h2>Liens hypertextes</h2>
+            <h3>Lien vers une autre page du même dossier</h3>
+                <a href="page2.html" target="_blank">Aller vers la page 2</a>
+            <h3>Lien vers une page externe</h3>
+                <a href="http://www.microsoft.com" target="_blank">Lien vers le site de microsoft</a>
+            <h3>Lien vers une ancre dans la page en cours</h3>
+                <a href="#">Top</a>
+                <a href="#paragraphe">Aller vers la section des paragraphes</a>
+            <h3>Accéder au client email local</h3>
+                <a href="mailto:mehdi.mtir@gmail.com">Contactez-moi</a>
+        </div>
+        <div>
+            <h2>Les tableaux</h2>
+            <h3>Tableau simple</h3>
+                <table border="1">
+                    <tr>
+                        <th rowspan="3">Joueurs</th>
+                        <th>Nom</th>
+                        <th>Prénom</th>
+                        <th colspan="2">Equipe</th>
+                    </tr>
+                    
+                    <tr>
+                        <td>Messi</td>
+                        <td>Lionel</td>
+                        <td>Inter</td>
+                        <td>Miami</td>
+                    </tr>
+
+                    <tr>
+                        <td>Mbappé</td>
+                        <td>Kiliane</td>
+                        <td colspan="2">PSG</td>
+                    </tr>
+                </table>
+            <h3>Tableau décomposé en sections</h3>
+                <table border="1">
+                    <thead>
+                        <tr >
+                            <th>Nom</th>
+                            <th>Prénom</th>
+                            <th>Equipe</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Messi</td>
+                            <td>Lionel</td>
+                            <td>Inter Miami</td>
+                        </tr>
+    
+                        <tr>
+                            <td>Mbappé</td>
+                            <td>Kiliane</td>
+                            <td>PSG</td>
+                        </tr>
+                    </tbody>
+                    <caption>description du contenu du tableau</caption>
+                </table>
+        </div>
+        <div>
+            <h2>Balises multimédias</h2>
+            <h3>Afficher des images</h3>
+                <img src="images/logo.png" alt="Logo HTML5" id="logo" />
+            <h3>Afficher des vidéos</h3>
+                <video controls autoplay loop muted >
+                    <source src="videos/video.mp4"/>
+                    <source src="videos/video.org"/>
+                    <source src="videos/video.webm"/>
+                </video>
+            <h3>Insérer un fichier audio</h3>
+                <audio src="audio/test.mp3" controls ></audio>
+            <h3>Ajouter des figures</h3>
+                <figure>
+                    <img src="images/logo.png" alt="Logo HTML5"/>
+                    <img src="images/logo.png" alt="Logo HTML5"/>
+                    <img src="images/logo.png" alt="Logo HTML5"/>
+                    <figcaption>Logo HTML5, affichage multiple</figcaption>
+                </figure>
+        </div>
+    </body>
+</html>
