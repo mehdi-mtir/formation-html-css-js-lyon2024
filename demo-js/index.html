@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Démonstration Javascript</title>
+    <script>
+        //Déclration de variables en JS et typage dynamique
+        
+        var message = "Mon premier message"; //Portée globale ou une portée de fonction
+        //A partir de 2015 et EcmaScript 6 (ES6)
+        let message2 = "Mon deuxième message"; //Différence de portée de la variable : visible uniquement dans le bloc ou la variable est déclaré
+        //console.log(window.message); //portée globale
+        const PI = 3.14;
+
+        //Types de valeurs
+        //1. types simples : number, boolean, string, null, undefined
+        //2. types complexes : tableaux, objets...
+
+        //Déclaration d'un tableau
+        var notes1 = new Array(); //notation explicite
+        /*
+        var notes2 = []; //notation litérale
+        note2[0] = 10;
+        note2[1] = 14;
+        */
+       var notes2 = [16, 14];
+
+       //Déclaration des objets
+       let personne = new Object();//notation explicite
+       /*let personne2 = {}; //notation litérale
+       personne2.nom = "Messi";
+       personne2.prenom = "Lionel";*/
+
+       let personne2 = {
+        nom : "Messi",
+        prenom : "Lionel"
+       }
+       //console.log(personne2.nom);
+
+       //stuctures conditionnelles :
+
+       let max = 0
+       //1. if ... else
+       /*if(notes2[0] < notes2[1]){
+        max = notes2[1];
+       }
+       else{
+        max = notes2[0];
+       }*/
+       //Version simplifiée avec l'opérateur ternaire
+       max = (notes2[0] < notes2[1])  ? notes2[1] : notes2[0];
+
+       //console.log(max);
+
+       //2. switch case..
+       let couleur = "Pink";
+       switch(couleur){
+        case "red":
+            //console.log("rouge"); break;
+        case "black":
+            //console.log("noir"); break;
+        case "Green":
+            //console.log("vert"); break;
+        default :
+            //console.log("Couleur inconnue");
+       }
+
+
+       //structures itératives
+       //1. Boucle for
+       for(let comp = 0; comp < 10; comp++){
+        //console.log(comp);
+       }
+
+       //2. Boucle while
+       let comp = 0
+       while(comp < 10){
+        //console.log(comp);
+        comp++;
+       }
+
+       //3.Boucle do...while
+       let indice = 0;
+       while(notes1.length < 10){
+        do{
+            var note = prompt("Veuiller saisir une note");
+        }while(isNaN(note) || Number(note) > 20 || note < 0);
+        //console.log("Note saisie : " + note);
+        notes1[indice] = note;
+        indice ++;
+       }
+
+       console.table(notes1);
+        
+
+
+
+
+
+        //Opérateurs de compraison
+        var note1 = 10;
+        var note2 = '10';
+        //console.log(note1 == note2); //opérateur d'égalité
+        //console.log(note1 === note2); //opérateur d'équivalence
+
+
+
+
+
+        //console.log(typeof(message)); //string
+        message = 10;
+        //console.log(typeof(message)); //number
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
