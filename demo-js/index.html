@@ -31,11 +31,18 @@
        /*let personne2 = {}; //notation litérale
        personne2.nom = "Messi";
        personne2.prenom = "Lionel";*/
+       let personne1 = {
+        nom : "Mbappe",
+        prenom : "Kiliane"
+       }
 
        let personne2 = {
         nom : "Messi",
         prenom : "Lionel"
        }
+
+       let personnes = [personne1, personne2];
+       console.log(personnes[0].nom);
        //console.log(personne2.nom);
 
        //stuctures conditionnelles :
@@ -81,17 +88,91 @@
        }
 
        //3.Boucle do...while
-       let indice = 0;
+       /*let indice = 0;
        while(notes1.length < 10){
         do{
             var note = prompt("Veuiller saisir une note");
-        }while(isNaN(note) || Number(note) > 20 || note < 0);
+        }while(isNaN(note) || Number(note) > 20 || Number(note) < 0);
         //console.log("Note saisie : " + note);
-        notes1[indice] = note;
+        notes1[indice] = Number(note);
         indice ++;
        }
 
        console.table(notes1);
+
+
+       //Calcul de la moyenne du tableau notes1
+       let somme = 0;
+       for(let i = 0; i < notes1.length; i++){
+            somme += notes1[i];
+       }
+
+       let moyenne = somme / notes1.length;
+       console.log("La moyenne des notes est : " + moyenne);*/
+
+
+       //Déclaration des fonctions
+       //1. Syntaxe classique
+       /*function somme (tabNotes){
+        let somme = 0;
+        for(let i = 0; i < notes1.length; i++){
+                somme += notes1[i];
+        }
+        return somme;
+       }*/
+
+       //2. Fonction anonyme
+       /*let sommeFct = function(tabnotes){
+        let somme = 0;
+        for(let i = 0; i < notes1.length; i++){
+                somme += notes1[i];
+        }
+        return somme;
+       };*/
+       //console.log(typeof(sommeFct));
+
+       //3. Fonctions fléchées
+       let sommeFct2 = (tabnotes) => {
+            let somme = 0;
+            for(let i = 0; i < tabnotes.length; i++){
+                    somme += tabnotes[i];
+            }
+            return somme;
+       };
+       console.log(typeof(sommeFct2));
+
+       function saisieNotes(nombreNotes){
+            let indice = 0;
+            let notes = [];
+            while(notes.length < nombreNotes){
+                do{
+                    var note = prompt("Veuiller saisir une note");
+                }while(isNaN(note) || Number(note) > 20 || Number(note) < 0);
+                //console.log("Note saisie : " + note);
+                notes[indice] = Number(note);
+                indice ++;
+            }
+            return notes;
+       }
+
+       function calculMoyenne(notes){
+            let sommeNotes = sommeFct2(notes);
+            let moyenne = sommeNotes / notes.length;
+            return moyenne;
+            //return sommeFct2(notes)/notes.length
+       }
+
+
+       function main(){
+            let notes = saisieNotes(5);
+            console.log(calculMoyenne(notes));
+       }
+
+       main();
+
+
+
+
         
 
 
