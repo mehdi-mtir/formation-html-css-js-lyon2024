@@ -24,8 +24,58 @@ function showBooksList(){
     tbody.innerHTML = newHTML;
 }
 
+function toggleAddForm(){
+    let addBlock = document.getElementById("divAddForm");
+    addBlock.classList.toggle("hide");
+}
+
+function getLastId(){
+    return ebooks[ebooks.length-1].id;
+}
+
+function collectFormData(){
+    return {
+        id : getLastId() + 1,
+        title : document.getElementById("title").value,
+        author : document.getElementById("author").value,
+        price : document.getElementById("price").value
+    }
+}
+
+function resetAddForm(){
+    document.getElementById("title").value = "";
+    document.getElementById("author").value = "";
+    document.getElementById("price").value = "";
+}
+
+function addNewBook(event){
+    event.preventDefault();
+    console.log(event);
+
+    //Récupérer les valeurs des champs et créer un nouvel objet ebook
+    let newEbook = collectFormData();
+
+    //Ajouter le nouvel objet au tableau ebooks
+    ebooks.push(newEbook);
+
+    //Rafraichir l'affichage de ma liste de ebooks
+    showBooksList();
+
+    //Réinitialiser les champs du formulaire
+
+
+    //Cacher le formulaire
+    toggleAddForm();
+}
+
 function init(){
     showBooksList();
+
+    let btnAdd = document.getElementById("btnAdd");
+    btnAdd.addEventListener("click", toggleAddForm);
+
+    let btnAddForm = document.querySelector("form");
+    btnAddForm.addEventListener("submit", addNewBook)
 }
 
 window.addEventListener("load", init);
