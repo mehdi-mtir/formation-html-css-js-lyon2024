@@ -71,8 +71,8 @@ function getNumberValue(inputId){
 }
 
 function addBtnListener(idBtn, eventType, eventHandler){
-    //let btn = document.getElementById(idBtn);
-    let btn = document.querySelector("#idBtn")
+    let btn = document.getElementById(idBtn);
+    //let btn = document.querySelector("#"+idBtn)
     btn.addEventListener(eventType, eventHandler);
 
     return btn;
