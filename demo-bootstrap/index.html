@@ -27,7 +27,8 @@
         <h1>Application des gestion des e-books</h1>
 
         <div class="row">
-            <button class="btn btn-success col-sm-6 col-lg-3 mb-3" id="btnAdd">Ajouter un nouveau livre</button>
+            <button class="btn btn-success col-sm-6 col-lg-3 mb-3 " id="btnAdd">Ajouter un nouveau livre</button>
+            <button class="btn btn-info col-sm-6 col-lg-3 mb-3 offset-lg-1 " id="btnSave">Sauvarger les données</button>
             <table class="table table-striped">
                 <thead>
                   <tr class="table-dark">
@@ -60,6 +61,26 @@
               <input type="text" class="form-control" id="price">
             </div>
             <button type="submit" class="btn btn-primary">Valider</button>
+          </form>
+        </div>
+
+        <div id="divEditForm" class="row hide">
+          <form>
+            <div class="mb-3">
+              <label for="titleEd" class="form-label">Titre</label>
+              <input type="text" class="form-control" id="titleEd">
+            </div>
+            <div class="mb-3">
+              <label for="authorEd" class="form-label">Auteur</label>
+              <input type="text" class="form-control" id="authorEd">
+            </div>
+            <div class="mb-3">
+              <label for="priceEd" class="form-label">Prix</label>
+              <input type="text" class="form-control" id="priceEd">
+            </div>
+            <input type="hidden" id="idEd"/>
+            <button type="submit" class="btn btn-primary">Valider</button>
+          </form>
         </div>
     
 

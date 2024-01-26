@@ -1,9 +1,5 @@
 
-let ebooks = [
-    {id : 1, title : "Power of Habits ---", author : "Auteur 1", price : 30},
-    {id : 2, title : "ASP.NET 8 et C# 12 --", author : "Auteur 2", price : 25},
-    {id : 3, title : "Scrum --", author : "Auteur 3", price : 23},
-]
+let ebooks = []
 
 function showBooksList(){
     //Générer le nouveau code HTML à injecter : <tr> <td>..</td>...</tr>
@@ -14,14 +10,55 @@ function showBooksList(){
             newHTML += "<td>" + ebooks[i].title + "</td>";
             newHTML += "<td>" + ebooks[i].author + "</td>";
             newHTML += "<td>" + ebooks[i].price + "</td>";
-            newHTML += "<td><button class='btn btn-primary'>Editer</button></td>";
-            newHTML += "<td><button class='btn btn-danger'>Supprimer</button></td>";
+            newHTML += "<td><button class='btn btn-primary' onclick='toggleEditForm("+JSON.stringify(ebooks[i])+")'>Editer</button></td>";
+            //newHTML += "<td><button class='btn btn-primary' onclick='toggleEditForm("+ebooks[i].id+")'>Editer</button></td>";
+            newHTML += "<td><button class='btn btn-danger' onclick=(deleteEbook("+ ebooks[i].id +"))>Supprimer</button></td>";
         newHTML += "</tr>";
     }
 
     //Récupérer l'élément tbody et y injecter le code HTML
     const tbody = document.querySelector("tbody");
     tbody.innerHTML = newHTML;
+}
+
+/*function toggleEditForm(id){
+    console.log(id);
+    let editBlock = document.getElementById("divEditForm");
+    if(id !== undefined){
+        const ebook = ebooks.find(book => book.id === Number(id));
+        console.log(ebook);
+        document.getElementById("titleEd").value = ebook.title;
+        document.getElementById("authorEd").value = ebook.author;
+        document.getElementById("priceEd").value = ebook.price;
+    }
+    editBlock.classList.toggle("hide");
+}*/
+
+function deleteEbook(id){
+    if(confirm("Etes-vous sûre de vouloir supprimer le livre?")){
+        ebooks = ebooks.filter(book=>book.id !== id);
+        showBooksList();
+    }
+        
+}
+
+function toggleEditForm(ebook){
+    console.log(typeof(ebook));
+    let editBlock = document.getElementById("divEditForm");
+    if(ebook !== undefined){
+        //ebook = JSON.parse(ebook);
+        document.getElementById("titleEd").value = ebook.title;
+        document.getElementById("authorEd").value = ebook.author;
+        document.getElementById("priceEd").value = ebook.price;
+        document.getElementById("idEd").value = ebook.id;
+        if(editBlock.classList.contains("hide"))
+            editBlock.classList.remove("hide");
+
+    }
+    else{
+       editBlock.classList.add("hide"); 
+    }
+    
 }
 
 function toggleAddForm(){
@@ -38,7 +75,16 @@ function collectFormData(){
         id : getLastId() + 1,
         title : document.getElementById("title").value,
         author : document.getElementById("author").value,
-        price : document.getElementById("price").value
+        price : Number(document.getElementById("price").value)
+    }
+}
+
+function collectFormDataEdit(){
+    return {
+        id : Number(document.getElementById("idEd").value),
+        title : document.getElementById("titleEd").value,
+        author : document.getElementById("authorEd").value,
+        price : Number(document.getElementById("priceEd").value)
     }
 }
 
@@ -62,20 +108,51 @@ function addNewBook(event){
     showBooksList();
 
     //Réinitialiser les champs du formulaire
-
+    resetAddForm();
 
     //Cacher le formulaire
     toggleAddForm();
 }
 
+function editBook(event){
+    event.preventDefault();
+    //console.log("Edit en cours");
+
+    //Récupérer les données du livre modifié
+    let editedBook = collectFormDataEdit();
+
+    //Mettre à jour le tableau ebooks avec le livre modifié
+    ebooks = ebooks.map(book=>(book.id===editedBook.id)?editedBook:book);
+
+    //Rafraichir l'affichage de la liste
+    showBooksList();
+
+
+    //Réinitialiser les champs (optionnel)
+
+    //Cacher le formulaire
+    toggleEditForm();
+}
+
+function saveData(){
+    window.localStorage.setItem("ebooks", JSON.stringify(ebooks));
+}
+
 function init(){
+    ebooks = JSON.parse(window.localStorage.getItem("ebooks"));
     showBooksList();
 
     let btnAdd = document.getElementById("btnAdd");
     btnAdd.addEventListener("click", toggleAddForm);
 
-    let btnAddForm = document.querySelector("form");
+    let btnAddForm = document.querySelector("#divAddForm form");
     btnAddForm.addEventListener("submit", addNewBook)
+
+    let btnEditForm = document.querySelector("#divEditForm form");
+    btnEditForm.addEventListener("submit", editBook)
+
+    let btnSave = document.getElementById("btnSave");
+    btnSave.addEventListener("click", saveData);
 }
 
 window.addEventListener("load", init);
